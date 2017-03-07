@@ -26,7 +26,8 @@ class Template {
 	 *     returned instead of directly echoed. Useful if you want to do some
 	 *     post-processing such as minifying or caching to filesystem.
 	 *
-	 * @example
+	 * #### Example:
+	 * @code
 	 *
 	 * # template.php
 	 *
@@ -59,6 +60,8 @@ class Template {
 	 *     ], [
 	 *         [(new Filter()), 'whoami']
 	 *     ]);
+	 *
+	 * @endcode
 	 */
 	public function load($template, $args=[], $filter_args=[], $buffered=false) {
 
