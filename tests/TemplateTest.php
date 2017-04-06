@@ -59,6 +59,14 @@ class TemplateTest extends TestCase {
 			$test_array[1], self::$args['test_array'][1]);
 	}
 
+	public function test_constructor() {
+		$prc = new Template();
+		# the only method available
+		# @todo Should we make this whole thing static?
+		$this->assertTrue(
+			method_exists($prc, 'load'));
+	}
+
 	public function test_print() {
 		ob_start();
 		self::$prc->load(self::$tpl, self::$args);
