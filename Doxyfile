@@ -5,8 +5,8 @@
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "ZapTemplate"
-PROJECT_NUMBER         = "1.2"
-PROJECT_BRIEF          = "PHP is An HTML Template Engine."
+PROJECT_NUMBER         = "1.3"
+PROJECT_BRIEF          = "PHP is an HTML template engine."
 PROJECT_LOGO           =
 OUTPUT_DIRECTORY       = ./docs
 CREATE_SUBDIRS         = YES

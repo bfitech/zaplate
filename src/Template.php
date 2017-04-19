@@ -63,7 +63,7 @@ class Template {
 	 *
 	 * @endcode
 	 */
-	public function load($template, $args=[], $filter_args=[], $buffered=false) {
+	public function load($template, $args=[], $filter_args=[], $buffered=null) {
 
 		if ($buffered)
 			ob_start();
