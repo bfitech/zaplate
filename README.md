@@ -26,7 +26,7 @@ $ composer -vvv require bfitech/zaplate
 
 ## Sample Usage
 
-# template.php
+### template.php
 ```php
 <p><?php echo $group ?></p>
 <ul>
@@ -36,7 +36,7 @@ $ composer -vvv require bfitech/zaplate
 </ul>
 ```
 
-# renderer.php
+### renderer.php
 ```php
 class Filter {
 	public function whoami($name) {
