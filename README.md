@@ -16,6 +16,55 @@ Use other full-blown templating engines for rendering complex dynamic HTML.
 
 ----
 
+## Installation
+
+Install it from Packagist:
+
+```bash
+$ composer -vvv require bfitech/zaplate
+```
+
+## Sample Usage
+
+# template.php
+```php
+<p><?php echo $group ?></p>
+<ul>
+	<?php foreach ($members as $member); ?>
+	<li><?php echo $member ?></li>
+	<?php enforeach; ?>
+</ul>
+```
+
+# renderer.php
+```php
+class Filter {
+	public function whoami($name) {
+		if (is_string($name))
+			return $name;
+		return array_map(function($iname){
+			if (strpos(strtolower($iname), 'jekyll') !== false)
+				return 'Mr Hyde';
+ 			return $iname;
+		}, $name);
+	}
+}
+```
+
+```php
+(new Template())->load('template.php', [
+	'group' => "Extraordinary Gents",
+		'members' => [
+			'Allan Quatermain',
+			'Henry Jekyll',
+		], [
+			[(new Filter()), 'whoami']
+		]
+	]);
+```
+
+## Documentation
+
 Documentation available with:
 
 ```txt

@@ -5,6 +5,7 @@
 *.conf
 *.ini
 *.bak
+*.lock
 
 /vendor/
 /docs/
