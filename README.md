@@ -42,6 +42,8 @@ $ composer -vvv require bfitech/zaplate
 ```php
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 use BFITech\ZapTemplate\Template;
 
 class Filter {
@@ -49,22 +51,35 @@ class Filter {
 		if (is_string($name))
 			return $name;
 		return array_map(function($iname){
-			if (strpos(strtolower($iname), 'jekyll') !== false)
+			if (stripos($iname, 'jekyll') !== false)
 				return 'Mr Hyde';
 			return $iname;
 		}, $name);
 	}
 }
 
-(new Template())->load('template.php', [
-	'group' => "Extraordinary Gents",
+(new Template())->load('template.php',
+	[
+		'group' => "Extraordinary Gents",
 		'members' => [
 			'Allan Quatermain',
 			'Henry Jekyll',
-		], [
-			[(new Filter()), 'whoami']
-		]
-	]);
+		],
+	], [
+		[(new Filter()), 'whoami'],
+	]
+);
+```
+
+Run it:
+
+```txt
+$ php renderer.php
+<p>Extraordinary Gents</p>
+<ul>
+	<li>Allan Quatermain</li>
+	<li>Mr Hyde</li>
+</ul>
 ```
 
 ## Documentation

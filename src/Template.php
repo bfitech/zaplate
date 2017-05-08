@@ -45,21 +45,24 @@ class Template {
 	 *         if (is_string($name))
 	 *             return $name;
 	 *         return array_map(function($iname){
-	 *             if (strpos(strtolower($iname), 'jekyll') !== false)
+	 *             if (stripos($iname, 'jekyll') !== false)
 	 *                 return 'Mr Hyde';
 	 *             return $iname;
 	 *         }, $name);
 	 *     }
 	 * }
 	 *
-	 * (new Template())->load('template.php', [
-	 *     'group' => "Extraordinary Gents",
-	 *     'members' => [
-	 *         'Allan Quatermain',
-	 *         'Henry Jekyll',
-	 *     ], [
-	 *         [(new Filter()), 'whoami']
-	 *     ]);
+	 * (new Template())->load('template.php',
+	 *    [
+	 *        'group' => "Extraordinary Gents",
+	 *        'members' => [
+	 *            'Allan Quatermain',
+	 *            'Henry Jekyll',
+	 *        ],
+	 *    ], [
+	 *        [(new Filter()), 'whoami']
+	 *    ]
+	 * );
 	 *
 	 * @endcode
 	 */
