@@ -33,9 +33,9 @@ class Template {
 	 *
 	 * <p><?php echo $group ?></p>
 	 * <ul>
-	 * <?php foreach ($members as $member); ?>
+	 * <?php foreach ($members as $member): ?>
 	 *     <li><?php echo $member ?></li>
-	 * <?php enforeach; ?>
+	 * <?php endforeach; ?>
 	 * </ul>
 	 *
 	 * # renderer.php

@@ -27,17 +27,23 @@ $ composer -vvv require bfitech/zaplate
 ## Sample Usage
 
 ### template.php
+
 ```php
 <p><?php echo $group ?></p>
 <ul>
-	<?php foreach ($members as $member); ?>
+	<?php foreach ($members as $member): ?>
 	<li><?php echo $member ?></li>
-	<?php enforeach; ?>
+	<?php endforeach; ?>
 </ul>
 ```
 
 ### renderer.php
+
 ```php
+<?php
+
+use BFITech\ZapTemplate\Template;
+
 class Filter {
 	public function whoami($name) {
 		if (is_string($name))
@@ -45,13 +51,11 @@ class Filter {
 		return array_map(function($iname){
 			if (strpos(strtolower($iname), 'jekyll') !== false)
 				return 'Mr Hyde';
- 			return $iname;
+			return $iname;
 		}, $name);
 	}
 }
-```
 
-```php
 (new Template())->load('template.php', [
 	'group' => "Extraordinary Gents",
 		'members' => [
