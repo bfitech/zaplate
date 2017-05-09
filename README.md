@@ -82,6 +82,27 @@ $ php renderer.php
 </ul>
 ```
 
+**PROTIP:** If you want to minify the HTML on production, run your
+template file through ~~your~~my favorite
+[minifier](https://github.com/kangax/html-minifier) prior to
+rendering it, e.g.:
+
+```txt
+$ [ ! -f template.orig.php ] && cp template.{,orig.}php
+$ php -w template.orig.php | \
+> html-minifier \
+>   --collapse-whitespace \
+>   --trim-custom-fragments > \
+> template.php
+```
+
+Aaand ... huzzah!
+
+```txt
+$ php renderer.php
+<p>Extraordinary Gents</p><ul><li>Allan Quatermain</li><li>Mr Hyde</li></ul>
+```
+
 ## Documentation
 
 Documentation available with:
