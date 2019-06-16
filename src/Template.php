@@ -3,8 +3,15 @@
 
 namespace BFITech\ZapTemplate;
 
+
+/**
+ * Template class.
+ */
 class Template {
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		# nothing to be done
 	}
@@ -52,7 +59,7 @@ class Template {
 	 *     }
 	 * }
 	 *
-	 * (new Template())->load('template.php',
+	 * Template::load('template.php',
 	 *    [
 	 *        'group' => "Extraordinary Gents",
 	 *        'members' => [
@@ -60,14 +67,14 @@ class Template {
 	 *            'Henry Jekyll',
 	 *        ],
 	 *    ], [
-	 *        [(new Filter()), 'whoami']
+	 *        [(new Filter), 'whoami']
 	 *    ]
 	 * );
 	 *
 	 * @endcode
 	 */
-	public function load(
-		$template, $args=[], $filter_args=[], $buffered=null
+	public static function load(
+		$template, $args=[], $filter_args=[], $buffered=false
 	) {
 
 		if ($buffered)

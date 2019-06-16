@@ -27,19 +27,14 @@ class Filter {
 
 class TemplateTest extends TestCase {
 
-	public static $prc;
 	public static $tpl;
 	public static $args;
 
 	public static function setupBeforeClass() {
-		self::$prc = new Template();
 		self::$tpl = __DIR__ . '/index.php';
 		self::$args = [
 			'test_string' => 'Test String',
-			'test_array' => [
-				1,
-				'a',
-			],
+			'test_array' => [1, 'a'],
 		];
 	}
 
@@ -60,28 +55,24 @@ class TemplateTest extends TestCase {
 	}
 
 	public function test_constructor() {
-		$prc = new Template();
-		# the only method available
-		# @todo Should we make this whole thing static?
-		$this->assertTrue(
-			method_exists($prc, 'load'));
+		$this->assertTrue(method_exists((new Template()), 'load'));
 	}
 
 	public function test_print() {
 		ob_start();
-		self::$prc->load(self::$tpl, self::$args);
+		Template::load(self::$tpl, self::$args);
 		$rv = ob_get_clean();
 		$this->compare($rv);
 	}
 
 	public function test_buffered() {
-		$rv = self::$prc->load(self::$tpl, self::$args, [], true);
+		$rv = Template::load(self::$tpl, self::$args, [], true);
 		$this->compare($rv);
 	}
 
 	public function test_filtered() {
-		$filter = new Filter();
-		$rv = self::$prc->load(self::$tpl, self::$args, [
+		$filter = new Filter;
+		$rv = Template::load(self::$tpl, self::$args, [
 			[$filter, 'filter_string'],
 			[$filter, 'filter_array'],
 		], true);

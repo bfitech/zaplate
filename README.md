@@ -58,15 +58,14 @@ class Filter {
 	}
 }
 
-(new Template())->load('template.php',
-	[
+Template::load('template.php', [
 		'group' => "Extraordinary Gents",
 		'members' => [
 			'Allan Quatermain',
 			'Henry Jekyll',
 		],
 	], [
-		[(new Filter()), 'whoami'],
+		[(new Filter), 'whoami'],
 	]
 );
 ```
