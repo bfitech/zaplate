@@ -44,8 +44,6 @@ $ composer -vvv require bfitech/zaplate
 
 require __DIR__ . '/vendor/autoload.php';
 
-use BFITech\ZapTemplate\Template;
-
 class Filter {
 	public function whoami($name) {
 		if (is_string($name))
@@ -58,16 +56,15 @@ class Filter {
 	}
 }
 
-Template::load('template.php', [
-		'group' => "Extraordinary Gents",
-		'members' => [
-			'Allan Quatermain',
-			'Henry Jekyll',
-		],
-	], [
-		[(new Filter), 'whoami'],
-	]
-);
+BFITech\ZapTemplate\Template::load('template.php', [
+	'group' => "Extraordinary Gents",
+	'members' => [
+		'Allan Quatermain',
+		'Henry Jekyll',
+	],
+], [
+	[(new Filter), 'whoami'],
+]);
 ```
 
 Run it:

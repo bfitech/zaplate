@@ -59,17 +59,15 @@ class Template {
 	 *     }
 	 * }
 	 *
-	 * Template::load('template.php',
-	 *    [
-	 *        'group' => "Extraordinary Gents",
-	 *        'members' => [
-	 *            'Allan Quatermain',
-	 *            'Henry Jekyll',
-	 *        ],
-	 *    ], [
-	 *        [(new Filter), 'whoami']
-	 *    ]
-	 * );
+	 * Template::load('template.php', [
+	 *     'group' => "Extraordinary Gents",
+	 *     'members' => [
+	 *         'Allan Quatermain',
+	 *         'Henry Jekyll',
+	 *     ],
+	 * ], [
+	 *     [(new Filter), 'whoami']
+	 * ]);
 	 *
 	 * @endcode
 	 */
@@ -81,9 +79,8 @@ class Template {
 			ob_start();
 
 		if ($filter_args) {
-			foreach ($filter_args as $filter) {
+			foreach ($filter_args as $filter)
 				$args = array_map($filter, $args);
-			}
 		}
 
 		extract($args, EXTR_SKIP);
