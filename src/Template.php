@@ -5,7 +5,6 @@ namespace BFITech\ZapTemplate;
 
 class Template {
 
-
 	public function __construct() {
 		# nothing to be done
 	}
@@ -15,16 +14,17 @@ class Template {
 	 *
 	 * @param string $template Path to template file, a regular PHP file
 	 *     containing variables registered in $args.
-	 * @param array $args Associative arrays with keys corresponding variables
-	 *     in the $template. Each element can nest another array. It depends
-	 *     on the template to render it.
+	 * @param array $args Associative arrays with keys corresponding
+	 *     variables in the $template. Each element can nest another
+	 *     array. It depends on the template to render it.
 	 * @param array $filter_args Numeric arrays containing function that
-	 *     takes $args as argument and return one new array. Typical usage is
-	 *     applying htmlspecialchars() to each element to prevent HTML
-	 *     breakage.
+	 *     takes $args as argument and return one new array. Typical
+	 *     usage is applying htmlspecialchars() to each element to
+	 *     prevent HTML breakage.
 	 * @param bool $buffered When true, a string of rendered template is
-	 *     returned instead of directly echoed. Useful if you want to do some
-	 *     post-processing such as minifying or caching to filesystem.
+	 *     returned instead of directly echoed. Useful if you want to do
+	 *     some post-processing such as minifying or caching to
+	 *     filesystem.
 	 *
 	 * #### Example:
 	 * @code
@@ -66,7 +66,9 @@ class Template {
 	 *
 	 * @endcode
 	 */
-	public function load($template, $args=[], $filter_args=[], $buffered=null) {
+	public function load(
+		$template, $args=[], $filter_args=[], $buffered=null
+	) {
 
 		if ($buffered)
 			ob_start();
@@ -87,4 +89,3 @@ class Template {
 
 	# That's all, folks.
 }
-
